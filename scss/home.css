@@ -1,0 +1,736 @@
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6, th {
+  font-weight: normal;
+}
+
+a, a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+* {
+  font-family: Open, Tahoma, Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: none;
+}
+
+*:hover, *:focus, *:active {
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+tt, em {
+  font-family: "Helvetica", sans-serif;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button,
+input[type=button],
+input[type=text],
+input[type=number],
+textarea {
+  outline: none;
+  font-family: "Helvetica", sans-serif;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+input::-ms-reveal {
+  display: none;
+}
+
+input[type=password]::-webkit-textfield-decoration-container {
+  visibility: hidden;
+}
+
+.nofloat:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ::-webkit-scrollbar{ 
+	width:10px;
+	height: 10px;
+	background-color:#f1f1f1;
+} */
+::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border: 3px #f1f1f1 solid;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: background 0.5s linear;
+  transition: background 0.5s linear;
+}
+
+*:hover::-webkit-scrollbar-thumb {
+  background-color: #a9a9a9;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #f1f1f1;
+}
+
+img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+body {
+  background-color: #004646;
+  color: #fff;
+}
+
+.mainLayout {
+  max-width: 1110px;
+  margin: auto;
+  padding: 20px 10px;
+}
+.mainLayout > div {
+  margin-bottom: 30px;
+}
+
+.gameSel {
+  display: flex;
+}
+.gameSel iframe {
+  width: 60%;
+  margin-right: 10px;
+  flex-shrink: 0;
+  border-radius: 5px;
+}
+@media screen and (max-width: 550px) {
+  .gameSel iframe {
+    display: none;
+  }
+}
+.gameSel .list {
+  margin-right: 15px;
+  flex-shrink: 0;
+  display: none;
+}
+@media screen and (max-width: 550px) {
+  .gameSel .list {
+    display: block;
+  }
+}
+.gameSel .list li {
+  padding: 10px 5px;
+  position: relative;
+}
+.gameSel .list li + li::before {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #04e5a7, #345cf1);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hotgame {
+  width: 100%;
+}
+.hotgame .title {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+.hotgame .icon {
+  width: 18px;
+  margin-right: 5px;
+}
+.hotgame .item + .item {
+  margin-top: 10px;
+}
+.gameCarousel {
+  width: 100%;
+  height: 0;
+  padding-bottom: 49%;
+  position: relative;
+  overflow: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  border-radius: 5px;
+}
+.gameCarousel .sw-slides {
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  transform: translateX(0);
+  position: absolute;
+  bottom: 0;
+}
+.gameCarousel .sw-slide {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+
+.trade {
+  border-radius: 10px;
+  background: linear-gradient(90deg, #d69d49, #f5d37d, #d69d49 40%, #ffe99c 70%, #8b5c22, #ce9643);
+}
+@media screen and (max-width: 450px) {
+  .trade {
+    background: unset;
+  }
+}
+.trade .title {
+  padding: 8px 15px;
+  color: #4b2e0b;
+  font-weight: bold;
+  font-size: 14px;
+  font-style: italic;
+}
+@media screen and (max-width: 450px) {
+  .trade .title {
+    border-radius: 5px 5px 0 0;
+    background: linear-gradient(90deg, #d69d49, #f5d37d, #d69d49 40%, #ffe99c 70%, #8b5c22, #ce9643);
+  }
+}
+.trade .sheet {
+  padding: 15px;
+  border-radius: 10px;
+  background: linear-gradient(0deg, #0b5252, #002a2b);
+  position: relative;
+  overflow: hidden;
+}
+@media screen and (max-width: 450px) {
+  .trade .sheet {
+    padding: 0;
+    background: unset;
+  }
+}
+.trade .sheet::before {
+  content: "";
+  width: calc(100% + 20px);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -10px;
+  box-shadow: 0 -10px 20px #fff inset;
+  opacity: 0.4;
+}
+@media screen and (max-width: 450px) {
+  .trade .sheet::before {
+    display: none;
+  }
+}
+.trade .sheet table {
+  width: 100%;
+  font-size: 14px;
+}
+.trade .sheet th {
+  padding: 8px 5px;
+  background: #aaaaa9;
+}
+.trade .sheet th:nth-child(1) {
+  background: linear-gradient(90deg, #03e9a4, #3558f3);
+  border-radius: 5px 0 0 0;
+}
+.trade .sheet th:nth-child(3) {
+  background: linear-gradient(90deg, #a1fb7f, #078f95);
+}
+.trade .sheet th:nth-child(4) {
+  border-radius: 0 5px 0 0;
+}
+.trade .sheet th + th {
+  border-left: 2px solid #002a2b;
+}
+@media screen and (max-width: 450px) {
+  .trade .sheet th {
+    display: none;
+  }
+}
+.trade .sheet td {
+  padding: 8px 5px;
+  text-align: center;
+}
+@media screen and (max-width: 450px) {
+  .trade .sheet td {
+    width: 100%;
+    padding: 0 10px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #012223;
+  }
+  .trade .sheet td + td {
+    border-top: 1px solid #157579;
+  }
+  .trade .sheet td:nth-child(1) {
+    margin-top: 5px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+  }
+  .trade .sheet td:nth-child(1) span {
+    background: linear-gradient(180deg, rgb(124, 148, 253), #1a34a8);
+  }
+  .trade .sheet td:nth-child(3) span {
+    background: linear-gradient(180deg, #45cfd6, #065f64);
+  }
+  .trade .sheet td:nth-child(4) {
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+  }
+}
+.trade .sheet span {
+  display: none;
+}
+@media screen and (max-width: 450px) {
+  .trade .sheet span {
+    width: 120px;
+    margin-right: 10px;
+    background: #aaaaa9;
+    padding: 8px 5px;
+    display: inline-block;
+    border-right: 2px solid #157579;
+  }
+}
+
+.season .title {
+  padding: 10px 5px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(90deg, rgba(23, 78, 74, 0), #164e4b, #cfc4b3, #ffe99c, #154d4a, rgba(206, 150, 67, 0));
+  color: #004646;
+  font-style: italic;
+}
+.season .seasonShow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.season .arrow {
+  width: 35px;
+  height: 35px;
+  background: url(../images/icons/arrow_w.svg) no-repeat center/45%;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.season .arrow.left {
+  transform: scale(-1);
+}
+@media screen and (max-width: 450px) {
+  .season .arrow {
+    display: none;
+  }
+}
+.season .list {
+  max-width: 900px;
+  overflow: hidden;
+}
+@media screen and (max-width: 900px) {
+  .season .list {
+    width: calc(100% - 70px);
+    max-width: 450px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .season .list {
+    width: 100%;
+  }
+}
+.season .list ul {
+  width: calc(var(--num) * 50%);
+  display: flex;
+  justify-content: center;
+}
+.season .list ul.only {
+  width: 100%;
+}
+@media screen and (max-width: 900px) {
+  .season .list ul {
+    width: calc(var(--num) * 100%);
+  }
+}
+@media screen and (max-width: 450px) {
+  .season .list ul {
+    width: 100%;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    justify-content: start;
+  }
+}
+.season .list li {
+  width: 50%;
+  padding: 0 5px;
+  transition: transform 0.5s;
+}
+.season .list li.only {
+  width: 100%;
+}
+@media screen and (max-width: 900px) {
+  .season .list li {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .season .list li {
+    min-width: 85vw;
+    scroll-snap-align: start;
+  }
+}
+.season .card {
+  padding: 20px 30px;
+  border-radius: 10px;
+  background: linear-gradient(0deg, #C09969, #0B4949);
+  box-shadow: 0 -2px 20px #032727 inset;
+}
+@media screen and (max-width: 450px) {
+  .season .card {
+    padding: 20px 10px;
+  }
+}
+.season table {
+  max-width: calc(100% - 160px);
+  margin: auto;
+}
+@media screen and (max-width: 450px) {
+  .season table {
+    max-width: calc(100% - 60px);
+    display: flex;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 450px) {
+  .season tr {
+    display: flex;
+    justify-content: center;
+  }
+}
+.season tr.full td {
+  width: 100%;
+}
+.season td {
+  padding: 0 5px;
+}
+.season .tip {
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #edecb3;
+}
+.season .teamLogo {
+  width: 65px;
+  height: 65px;
+  margin: auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(0deg, #FFFFA8, #86D2AE);
+}
+@media screen and (max-width: 450px) {
+  .season .teamLogo {
+    width: 50px;
+    height: 50px;
+  }
+}
+.season .teamLogo::before {
+  content: "";
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #265650;
+  border-radius: 50%;
+}
+.season .teamLogo img {
+  width: calc(100% - 16px);
+  position: relative;
+  z-index: 1;
+}
+.season .name {
+  padding-top: 2px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+.season .teamName {
+  padding: 0 5px;
+  font-size: 13px;
+  text-align: center;
+}
+.season .vs {
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #DDB03C;
+  text-align: center;
+}
+@media screen and (max-width: 450px) {
+  .season .vs {
+    height: 50px;
+    line-height: 50px;
+  }
+}
+.season .scoreDate {
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 1px;
+  transform: scale(0.9);
+}
+@media screen and (max-width: 450px) {
+  .season .scoreDate {
+    display: none;
+  }
+}
+.season .scoreTime {
+  font-size: 14px;
+  color: #00AF39;
+  text-align: center;
+  letter-spacing: 1px;
+  transform: scale(0.9);
+}
+@media screen and (max-width: 450px) {
+  .season .scoreTime {
+    display: none;
+  }
+}
+.season .betBtn {
+  margin-top: 5px;
+  height: 35px;
+  line-height: 35px;
+  padding: 0 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  font-size: 12px;
+  text-align: center;
+  background: #00AF39;
+  box-shadow: 0 -2px 2px #00571d inset;
+}
+.season .oddsList {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 5px;
+  display: flex;
+  background: linear-gradient(10deg, #74705C, #FFFFCA);
+  color: #333;
+}
+.season .odds {
+  width: 33.3333333333%;
+  padding: 10px 5px;
+  font-size: 12px;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+}
+.season .odds + .odds::before {
+  content: "";
+  width: 2px;
+  margin: auto;
+  height: calc(100% - 20px);
+  background-color: #333;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.8;
+}
+.season .odds p {
+  transform: scale(0.9);
+}
+.season .oddsNum {
+  font-size: 14px;
+  font-weight: bold;
+}
+.season .minName {
+  padding: 2px 5px 0;
+  font-size: 12px;
+  text-align: center;
+  display: none;
+}
+@media screen and (max-width: 450px) {
+  .season .minName {
+    display: block;
+  }
+}
+.season .layoutShow {
+  width: 100%;
+  padding: 5px;
+  display: none;
+}
+.season .layoutShow td {
+  width: 100%;
+  padding: 0;
+}
+.season .layoutShow .date {
+  margin-bottom: 2px;
+  width: 100%;
+  font-size: 13px;
+  text-align: center;
+  color: #fff;
+}
+.season .layoutShow .time {
+  width: 100%;
+  font-size: 13px;
+  text-align: center;
+  color: #00AF39;
+}
+@media screen and (max-width: 450px) {
+  .season .layoutShow {
+    display: flex;
+  }
+}
+@media screen and (max-width: 450px) {
+  .season .layoutHidden {
+    display: none;
+  }
+}
+
+.popular .title {
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.popular .title .inner {
+  padding: 20px 0 0 15px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.popular .title .icon {
+  width: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.popular .title p {
+  padding: 0 25px 0 20px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 14px;
+  background: linear-gradient(0deg, #14A1A7, #7DDE80);
+  border-radius: 0 0 30px 0;
+  font-style: italic;
+}
+.popular .popularShow {
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+.popular .popularShow .list {
+  width: 100%;
+  overflow: hidden;
+}
+.popular .popularShow ul {
+  width: 100%;
+  display: flex;
+}
+@media screen and (max-width: 950px) {
+  .popular .popularShow ul {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 780px) {
+  .popular .popularShow ul {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .popular .popularShow ul {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .popular .popularShow ul {
+    width: 100%;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+}
+.popular .popularShow li {
+  min-width: 20%;
+  padding: 5px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+@media screen and (max-width: 950px) {
+  .popular .popularShow li {
+    min-width: 25%;
+  }
+}
+@media screen and (max-width: 780px) {
+  .popular .popularShow li {
+    min-width: 33.3333333333%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .popular .popularShow li {
+    min-width: 50%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .popular .popularShow li {
+    min-width: 45vw;
+    scroll-snap-align: start;
+  }
+}
+.popular .popularShow .pic {
+  margin-bottom: 5px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.popular .popularShow .type {
+  color: #B78E00;
+}
+.popular .arrow {
+  width: 35px;
+  height: 35px;
+  background: url(../images/icons/arrow_w.svg) no-repeat center/45%;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.popular .arrow.left {
+  transform: scale(-1);
+}
+@media screen and (max-width: 450px) {
+  .popular .arrow {
+    display: none;
+  }
+}/*# sourceMappingURL=home.css.map */

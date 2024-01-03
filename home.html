@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <script src="js/jquery_3.6.0.js"></script>
+    <script src="js/swipeslider.js"></script>
+    <script src="js/vue_3.2.19.js"></script>
+    <link rel="stylesheet" href="scss/home.css">
+</head>
+
+<body>
+    <div class="mainLayout" id="main">
+        <!-- gameSel -->
+        <div class="gameSel">
+            <iframe src="https://www.youtube.com/embed/zSM4PJ_g_BU?si=Q1hPsgmSXaSRwnGM"></iframe>
+            <div class="list">
+                <ul>
+                    <li>Home</li>
+                    <li>Casino</li>
+                    <li>Sports</li>
+                    <li>Slot</li>
+                    <li>4D</li>
+                    <li>VIP</li>
+                    <li>Zues Mall</li>
+                    <li>Leader Board</li>
+                </ul>
+            </div>
+
+            <!-- hotgame -->
+            <div class="hotgame">
+                <div class="item">
+                    <div class="title">
+                        <div class="icon">
+                            <img src="images/icons/hot.webp">
+                        </div>
+                        <p>Hot Live Game</p>
+                    </div>
+                    <div id="carousel2" class="gameCarousel">
+                        <ul class="sw-slides">
+                            <template v-for="(item,index) in carousel">
+                                <li class="sw-slide">
+                                    <img :src="item.img">
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="title">
+                        <div class="icon">
+                            <img src="images/icons/hot.webp">
+                        </div>
+                        <p>Hot Slot Game</p>
+                    </div>
+                    <div id="carousel" class="gameCarousel">
+                        <ul class="sw-slides">
+                            <template v-for="(item,index) in carousel">
+                                <li class="sw-slide">
+                                    <img :src="item.img">
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- trade -->
+        <div class="trade">
+            <div class="title">LIVE TRANSACTION</div>
+            <div class="sheet">
+                <table>
+                    <tr>
+                        <th width="25%">DEPOSIT</th>
+                        <th width="25%">ID</th>
+                        <th width="25%">WITHDRAWAL</th>
+                        <th width="25%">ID</th>
+                    </tr>
+                    <template v-for="(item,index) in 2">
+                        <tr>
+                            <td><span>DEPOSIT</span>2,5678.04</td>
+                            <td><span>ID</span>xxxx9678</td>
+                            <td><span>WITHDRAWAL</span>2,5678.04</td>
+                            <td><span>ID</span>xxxx9678</td>
+                        </tr>
+                        <tr>
+                            <td><span>DEPOSIT</span>1234.99</td>
+                            <td><span>ID</span>xxxx0123</td>
+                            <td><span>WITHDRAWAL</span>1234.99</td>
+                            <td><span>ID</span>xxxx0123</td>
+                        </tr>
+                    </template>
+                </table>
+            </div>
+        </div>
+
+        <!-- season -->
+        <div class="season">
+            <div class="title">Upcoming Events</div>
+            <div class="seasonShow">
+                <div class="arrow left" @click="seasonTomove(1)"></div>
+                <div class="list">
+                    <ul :style="{'--num':seasonList.length}" :class="{'only': seasonList.length == 1}">
+                        <li v-for="(item,index) in seasonList" :id="index" :class="{'only': seasonList.length == 1}">
+                            <div class="card">
+                                <div class="tip">Support your team</div>
+                                <table>
+                                    <tr class="layoutShow">
+                                        <td colspan="3">
+                                            <div class="date">{{item.date}}</div>
+                                            <div class="time">{{item.time}}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="30%">
+                                            <div class="teamLogo">
+                                                <img :src="item.team_home.logo">
+                                            </div>
+                                            <div class="minName">{{item.team_home.name}}</div>
+                                        </td>
+                                        <td width="30%">
+                                            <div class="scoreDate">{{item.date}}</div>
+                                            <div class="scoreTime">{{item.time}}</div>
+
+                                            <div class="vs">VS</div>
+                                        </td>
+                                        <td width="30%">
+                                            <div class="teamLogo">
+                                                <img :src="item.team_away.logo">
+                                            </div>
+                                            <div class="minName">{{item.team_away.name}}</div>
+                                        </td>
+                                    </tr>
+                                    <tr class="layoutHidden">
+                                        <td>
+                                            <div class="teamName">{{item.team_home.name}}</div>
+                                        </td>
+                                        <td>
+                                            <div class="betBtn">Bet Now</div>
+                                        </td>
+                                        <td>
+                                            <div class="teamName">{{item.team_away.name}}</div>
+                                        </td>
+                                    </tr>
+                                    <tr class="full">
+                                        <td colspan="3">
+                                            <div class="oddsList">
+                                                <div class="odds">
+                                                    <div class="oddsNum">{{item.team_home.odds}}</div>
+                                                    <p>Home</p>
+                                                </div>
+                                                <div class="odds">
+                                                    <div class="oddsNum">{{item.hdp}}</div>
+                                                    <p>HDP</p>
+                                                </div>
+                                                <div class="odds">
+                                                    <div class="oddsNum">{{item.team_away.odds}}</div>
+                                                    <p>Away</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="layoutShow">
+                                        <td colspan="3">
+                                            <div class="betBtn">Bet Now</div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="arrow" @click="seasonTomove(2)"></div>
+            </div>
+        </div>
+
+        <!-- popular -->
+        <div class="popular">
+            <div class="title">
+                <div class="inner">
+                    <div class="icon">
+                        <img src="images/icons/hot.webp">
+                    </div>
+                    <p>MOST POPULAR GAMES</p>
+                </div> 
+            </div>
+            <div class="popularShow">
+                <div class="arrow left" @click="popularTomove(1)"></div>
+                <div class="list">
+                    <ul>
+                        <li v-for="(item,index) in popularList" :id="index">
+                            <div class="card">
+                                <div class="pic">
+                                    <img :src="item.pic">
+                                </div>
+                                <div>
+                                    <p>{{item.brand}}</p>
+                                    <div class="type">{{item.type}}</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="arrow" @click="popularTomove(2)"></div>
+            </div>
+        </div>
+
+        <div class="poster">
+            <img src="images/other/poster.webp">
+        </div>
+
+    </div>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    carousel: [{
+                        img: 'images/carousel/01.webp'
+                    }, {
+                        img: 'images/carousel/02.webp'
+                    }, {
+                        img: 'images/carousel/03.webp'
+                    }],
+                    seasonMove:0,
+                    seasonList: [
+                        {
+                            date: '15/11/2023',
+                            time: '13:00',
+                            team_home: {
+                                logo: 'images/logo/Yokohama_F_Marinos.webp',
+                                name: 'Yokohama F Mari',
+                                score: 2,
+                                odds: 0.92
+                            },
+                            team_away: {
+                                logo: 'images/logo/Consadole_Sapporo.webp',
+                                name: 'Consadole Sapporo',
+                                score: 0,
+                                odds: 0.88
+                            },
+                            hdp: 0.7
+                        },
+                        {
+                            date: '16/11/2023',
+                            time: '08:30',
+                            team_home: {
+                                logo: 'images/logo/Sanfrecce_Hiroshima.webp',
+                                name: 'Sanfrecce Hiroshima',
+                                score: 1,
+                                odds: 0.58
+                            },
+                            team_away: {
+                                logo: 'images/logo/Consadole_Sapporo.webp',
+                                name: 'Consadole Sapporo',
+                                score: 1,
+                                odds: 0.54
+                            },
+                            hdp: 0.4
+                        },
+                        {
+                            date: '16/11/2023',
+                            time: '11:00',
+                            team_home: {
+                                logo: 'images/logo/Sanfrecce_Hiroshima.webp',
+                                name: 'Yokohama F Mari',
+                                score: 0,
+                                odds: 0.78
+                            },
+                            team_away: {
+                                logo: 'images/logo/Yokohama_F_Marinos.webp',
+                                name: 'Consadole Sapporo',
+                                score: 1,
+                                odds: 0.9
+                            },
+                            hdp: 0.81
+                        },
+                    ],
+                    popularMove:0,
+                    popularList:[
+                        {
+                            pic:'images/casino/casino1.webp',
+                            brand:'Big Gaming',
+                            type:'Casino'
+                        },
+                        {
+                            pic:'images/casino/casino2.webp',
+                            brand:'AE Sexy',
+                            type:'Casino'
+                        },
+                        {
+                            pic:'images/casino/casino3.webp',
+                            brand:'Playtech',
+                            type:'Casino'
+                        },
+                        {
+                            pic:'images/casino/casino4.webp',
+                            brand:'ALLBET',
+                            type:'Casino'
+                        },
+                        {
+                            pic:'images/casino/casino5.webp',
+                            brand:'VIVO Gaming',
+                            type:'Casino'
+                        },
+                        {
+                            pic:'images/casino/casino6.webp',
+                            brand:'Evolution',
+                            type:'Casino'
+                        },
+                        
+                    ]
+                };
+            },
+            methods: {
+                seasonTomove(type) {
+                    let winW = document.body.clientWidth;
+                    let max = winW <= 1000 ? this.seasonList.length - 1 : this.seasonList.length - 2;
+                    if (type == 1) {
+                        this.seasonMove = this.seasonMove > 0 ? this.seasonMove - 1 : 0;
+                    } else if (type == 2) {
+                        this.seasonMove = this.seasonMove < max ? this.seasonMove + 1 : max;
+                    }
+
+                    document.querySelectorAll('.seasonShow li').forEach(item => {
+                        item.style.transform = `translateX(-${this.seasonMove * 100}%)`
+                    })
+                },
+                popularTomove(type) {
+                    let winW = document.body.clientWidth;
+                    let max;
+                    if(winW > 950){
+                        max = this.popularList.length - 5;
+                    }else if(winW <= 950 && winW > 780){
+                        max = this.popularList.length - 4;
+                    }else if(winW <= 780 && winW > 600){
+                        max = this.popularList.length - 3;
+                    }else{
+                        max = this.popularList.length - 2;
+                    }
+
+                    if (type == 1) {
+                        this.popularMove = this.popularMove > 0 ? this.popularMove - 1 : 0;
+                    } else if (type == 2) {
+                        this.popularMove = this.popularMove < max ? this.popularMove + 1 : max;
+                    }
+
+                    document.querySelectorAll('.popularShow li').forEach(item => {
+                        item.style.transform = `translateX(-${this.popularMove * 100}%)`
+                    })
+                },
+                resize(){
+                    this.seasonMove = 0;
+                    document.querySelectorAll('.seasonShow li').forEach(item => {
+                        item.style.transform = `translateX(-${this.seasonMove * 100}%)`
+                    })
+                    this.popularMove = 0;
+                    document.querySelectorAll('.popularShow li').forEach(item => {
+                        item.style.transform = `translateX(-${this.popularMove * 100}%)`
+                    })
+                }
+            },  
+            mounted() {
+                // 啟動輪播
+                $('#carousel').swipeslider();
+                $('#carousel2').swipeslider();
+
+                window.addEventListener('resize', this.resize);
+            },
+        }).mount("#main");
+    </script>
+</body>
+
+</html>
