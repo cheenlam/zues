@@ -801,11 +801,11 @@ body {
     opacity: 1;
   }
   .vodplay .vodList li:hover .card {
-    transform: scale(1.03);
+    transform: scale(1.02);
   }
-}
-.vodplay .vodList li:active .card {
-  transform: scale(1.01) translateY(2px);
+  .vodplay .vodList li:active .card {
+    transform: scale(1.01) translateY(1px);
+  }
 }
 .vodplay .vodList li.on {
   filter: grayscale(0%);
@@ -856,7 +856,7 @@ body {
 .vodplay .arrow.left {
   transform: scale(-1);
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 490px) {
   .vodplay .arrow {
     display: none;
   }

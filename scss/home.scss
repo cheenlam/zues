@@ -664,15 +664,16 @@ body {
                     filter: grayscale(0%);
                     opacity: 1;
                     .card{
-                        transform: scale(1.03);
+                        transform: scale(1.02);
+                    }
+                }
+                &:active{
+                    .card{
+                        transform: scale(1.01) translateY(1px);
                     }
                 }
             }
-            &:active{
-                .card{
-                    transform: scale(1.01) translateY(2px);
-                }
-            }
+            
             &.on{
                 filter: grayscale(0%);
                 opacity: 1;
@@ -723,7 +724,7 @@ body {
         &.left {
             transform: scale(-1);
         }
-        @include rwd(450) {
+        @include rwd(490) {
             display: none;
         }
     }
