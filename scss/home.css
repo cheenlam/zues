@@ -735,10 +735,131 @@ body {
   }
 }
 
-.vodList iframe {
+.vodplay .showVod {
+  width: calc(100% - 80px);
+  height: 0;
+  margin: 0 auto 5px;
+  padding-bottom: 54.3%;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+@media screen and (max-width: 490px) {
+  .vodplay .showVod {
+    width: calc(100% - 10px);
+  }
+}
+.vodplay iframe {
   width: 100%;
-  height: 54.5vw;
-  max-height: 613px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.vodplay .vodList {
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+.vodplay .vodList .list {
+  width: 100%;
+  overflow: hidden;
+}
+.vodplay .vodList ul {
+  width: 100%;
+  display: flex;
+}
+@media screen and (max-width: 900px) {
+  .vodplay .vodList ul {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .vodplay .vodList ul {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 490px) {
+  .vodplay .vodList ul {
+    width: 100%;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+}
+.vodplay .vodList li {
+  min-width: 25%;
+  padding: 5px;
+  font-size: 14px;
+  transition: 0.3s;
+  filter: grayscale(100%);
+  opacity: 0.7;
+}
+@media (any-hover: hover) {
+  .vodplay .vodList li:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+  .vodplay .vodList li:hover .card {
+    transform: scale(1.03);
+  }
+}
+.vodplay .vodList li:active .card {
+  transform: scale(1.01) translateY(2px);
+}
+.vodplay .vodList li.on {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+@media screen and (max-width: 900px) {
+  .vodplay .vodList li {
+    min-width: 33.3333333333%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .vodplay .vodList li {
+    min-width: 50%;
+  }
+}
+@media screen and (max-width: 490px) {
+  .vodplay .vodList li {
+    min-width: 45vw;
+    scroll-snap-align: start;
+  }
+}
+.vodplay .vodList .card {
+  height: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #1A1F23;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.vodplay .vodList .pic {
+  height: 0;
+  padding-bottom: 60%;
+  background: no-repeat center/cover;
+}
+.vodplay .vodList .txt {
+  padding: 8px 10px;
+  font-weight: bold;
+  text-align: center;
+  color: #B24315;
+}
+.vodplay .arrow {
+  width: 35px;
+  height: 35px;
+  background: url(../images/icons/arrow_w.svg) no-repeat center/45%;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.vodplay .arrow.left {
+  transform: scale(-1);
+}
+@media screen and (max-width: 450px) {
+  .vodplay .arrow {
+    display: none;
+  }
 }
 
 .footer {

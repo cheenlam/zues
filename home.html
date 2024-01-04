@@ -14,8 +14,8 @@
 <body>
     <div class="mainLayout" id="main">
         <!-- gameSel -->
-        <div class="gameSel" v-if="false">
-            <iframe src="https://www.youtube.com/embed/zSM4PJ_g_BU?si=Q1hPsgmSXaSRwnGM"></iframe>
+        <div class="gameSel">
+            <iframe src="https://www.youtube.com/embed/zSM4PJ_g_BU?si=Q1hPsgmSXaSRwnGM&autoplay=1&loop=1&mute=1&controls=0&playsinline=1"></iframe>
             <div class="list">
                 <ul>
                     <li>Home</li>
@@ -69,7 +69,7 @@
         </div>
 
         <!-- trade -->
-        <div class="trade" v-if="false">
+        <div class="trade">
             <div class="title">LIVE TRANSACTION</div>
             <div class="sheet">
                 <table>
@@ -98,7 +98,7 @@
         </div>
 
         <!-- season -->
-        <div class="season" v-if="false">
+        <div class="season">
             <div class="title">Upcoming Events</div>
             <div class="seasonShow">
                 <div class="arrow left" @click="seasonTomove(1)"></div>
@@ -179,7 +179,7 @@
         </div>
 
         <!-- popular -->
-        <div class="popular" v-if="false">
+        <div class="popular">
             <div class="title">
                 <div class="inner">
                     <div class="icon">
@@ -209,22 +209,36 @@
             </div>
         </div>
 
-        <!-- vodList -->
-        <div class="vodList">
-            <!-- src="https://www.youtube.com/embed/zSM4PJ_g_BU?autoplay=1&loop=1&controls=1&modestbranding=1" -->
-            <!-- https://www.youtube.com/embed/JWYNptUogU8?si=QcQqRCcdsRa2F_Bn -->
-            <!-- https://www.youtube.com/embed/ickj4DT5S3U?si=6zubtmWnp1bxypEt -->
-            <iframe :src="vodList[vodSel].url"></iframe>
-            <button @click="vodSel = 0">1</button>
-            <button @click="vodSel = 1">2</button>
+        <!-- vodplay -->
+        <div class="vodplay">
+            <div class="showVod">
+                <iframe :src="reVodUrl(vodList[vodSel].key)"></iframe>
+            </div>
+            <div class="vodList">
+                <div class="arrow left" @click="vodTomove(1)"></div>
+                <div class="list">
+                    <ul>
+                        <li v-for="(item,index) in vodList" :id="index" @click="vodSel = index" :class="{'on' : vodSel == index}">
+                            <div class="card">
+                                <div class="pic" :style="rebgi(item.pic)"></div>
+                                <div class="txt">
+                                    <p>{{item.name}}</p>
+                                    <p>{{item.name_en}}</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="arrow" @click="vodTomove(2)"></div>
+            </div>
         </div>
 
-        <div class="poster" v-if="false">
+        <div class="poster">
             <img src="images/other/poster.webp">
         </div>
 
         <!-- footer -->
-        <div class="footer" v-if="false">
+        <div class="footer">
             <div class="txt">
                 <div class="res" v-html="footer.res"></div>
                 <div class="title" v-html="footer.title"></div>
@@ -232,7 +246,7 @@
                     <p v-html="item" v-if="index <= showDesc"></p>
                 </template>
                 
-                <div class="more" @click="addDesc()"><span>read more</span></div>
+                <div class="more" @click="addDesc()" v-if="showDesc < footer.desc.length-1"><span>read more</span></div>
             </div>
         </div>
     </div>
@@ -341,17 +355,61 @@
                         title: 'Trusted Online Casino Malaysia 2023 - ZUES',
                         desc:[
                             'Trusted Online Casino Malaysia 2023 - ZUES<br><strong>Online Casino Malaysia</strong> has evolved drastically in the last few years. It has been drawing comparisons from the Western countries. <strong>ZUES</strong>, an <strong>online casino Malaysia</strong> has become the most trusted online gambling platform for bettors. We have emerged as a top choice of casino games for all Malaysians. We offer a wide range of games as much as you can expect from any top operator in the country.',
-                            'At our online casino in Malaysia, you can play live poker games in mobile, online roulette, and live casino games. These are easy to play, and you can also check out our best online sport betting and e-sports betting at our site with the most competitive odds to consider. If you crave for slot games, don’t worry, we have it too for you. In short, <strong>ZUES</strong> is compatible with mobile and desktop versions whether its an iOS or Android OS mobile device.',
+
+                            'At our online casino in Malaysia, you can play live poker games in mobile, online roulette, and live casino games. These are easy to play, and you can also check out our best online sport betting and e-sports betting at our site with the most competitive odds to consider. If you crave for slot games, don’t worry, we have it too for you. In short, <strong>ZUES</strong> is compatible with mobile and desktop versions whether its an iOS or Android OS mobile device.'
                         ]
                     },
                     vodSel:0,
+                    vodMove:0,
                     vodList:[
                         {
-                            url:'https://www.youtube.com/embed/JWYNptUogU8?si=QcQqRCcdsRa2F_Bn&autoplay=1&loop=1&mute=1'
+                            key:'JWYNptUogU8',
+                            pic:'images/vod/01.webp',
+                            name :'慢慢做起来',
+                            name_en :'Do it slowly'
                         },
                         {
-                            url:'https://www.youtube.com/embed/ickj4DT5S3U?si=6zubtmWnp1bxypEt&autoplay=1&loop=1&mute=1'
-                        }
+                            key:'778oM7Vs5_o',
+                            pic:'images/vod/02.webp',
+                            name :'五百',
+                            name_en :'Wu Bai'
+                        },
+                        {
+                            key:'MGhM4lxlewI',
+                            pic:'images/vod/03.webp',
+                            name :'千千万万个我',
+                            name_en :'We are everyone'
+                        },
+                        {
+                            key:'EFFuyl1Lu64',
+                            pic:'images/vod/04.webp',
+                            name :'笑着回家',
+                            name_en :'Go home with a smile'
+                        },
+                        {
+                            key:'VmdHdDPt1NM',
+                            pic:'images/vod/05.webp',
+                            name :'鬼岛',
+                            name_en :'Ghost island'
+                        },
+                        {
+                            key:'PNrFhR7CGYE',
+                            pic:'images/vod/06.webp',
+                            name :'二十楼',
+                            name_en :'20th floor'
+                        },
+                        {
+                            key:'-Rp7UPbhErE',
+                            pic:'images/vod/07.webp',
+                            name :'玻璃心',
+                            name_en :'Glass heart'
+                        },
+                        {
+                            key:'wEXeFdcFedI',
+                            pic:'images/vod/08.webp',
+                            name :'夜雾',
+                            name_en :'Night fog'
+                        },
                     ]
                 };
             },
@@ -372,11 +430,11 @@
                 popularTomove(type) {
                     let winW = document.body.clientWidth;
                     let max;
-                    if(winW > 950){
+                    if(winW > 900){
                         max = this.popularList.length - 5;
-                    }else if(winW <= 950 && winW > 780){
+                    }else if(winW <= 900 && winW > 700){
                         max = this.popularList.length - 4;
-                    }else if(winW <= 780 && winW > 600){
+                    }else if(winW <= 700 && winW > 490){
                         max = this.popularList.length - 3;
                     }else{
                         max = this.popularList.length - 2;
@@ -392,6 +450,27 @@
                         item.style.transform = `translateX(-${this.popularMove * 100}%)`
                     })
                 },
+                vodTomove(type) {
+                    let winW = document.body.clientWidth;
+                    let max;
+                    if(winW > 950){
+                        max = this.vodList.length - 4;
+                    }else if(winW <= 950 && winW > 780){
+                        max = this.vodList.length - 3;
+                    }else{
+                        max = this.vodList.length - 2;
+                    }
+
+                    if (type == 1) {
+                        this.vodMove = this.vodMove > 0 ? this.vodMove - 1 : 0;
+                    } else if (type == 2) {
+                        this.vodMove = this.vodMove < max ? this.vodMove + 1 : max;
+                    }
+
+                    document.querySelectorAll('.vodList li').forEach(item => {
+                        item.style.transform = `translateX(-${this.vodMove * 100}%)`
+                    })
+                },
                 resize(){
                     this.seasonMove = 0;
                     document.querySelectorAll('.seasonShow li').forEach(item => {
@@ -401,11 +480,23 @@
                     document.querySelectorAll('.popularShow li').forEach(item => {
                         item.style.transform = `translateX(-${this.popularMove * 100}%)`
                     })
+
+                    this.vodMove = 0;
+                    document.querySelectorAll('.vodList li').forEach(item => {
+                        item.style.transform = `translateX(-${this.vodMove * 100}%)`
+                    })
                 },
                 addDesc(){
                     let max = this.footer.desc.length - 1;
                     this.showDesc = this.showDesc >= max ? max : this.showDesc+1;
-                }
+                },
+                reVodUrl(key){
+                    return `https://www.youtube.com/embed/${key}?&autoplay=1&loop=1&mute=1&controls=0&playsinline=1`;
+                },
+                rebgi(src){
+                    return `background-image: url(${src})`;
+                },
+                
             },  
             mounted() {
                 // 啟動輪播
