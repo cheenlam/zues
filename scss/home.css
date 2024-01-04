@@ -410,7 +410,7 @@ body {
 .season .card {
   padding: 20px 30px;
   border-radius: 10px;
-  background: linear-gradient(0deg, #C09969, #0B4949);
+  background: linear-gradient(0deg, #c09969, #0b4949);
   box-shadow: 0 -2px 20px #032727 inset;
 }
 @media screen and (max-width: 450px) {
@@ -458,7 +458,7 @@ body {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(0deg, #FFFFA8, #86D2AE);
+  background: linear-gradient(0deg, #ffffa8, #86d2ae);
 }
 @media screen and (max-width: 450px) {
   .season .teamLogo {
@@ -499,7 +499,7 @@ body {
   font-size: 18px;
   letter-spacing: 1px;
   font-weight: bold;
-  color: #DDB03C;
+  color: #ddb03c;
   text-align: center;
 }
 @media screen and (max-width: 450px) {
@@ -522,7 +522,7 @@ body {
 }
 .season .scoreTime {
   font-size: 14px;
-  color: #00AF39;
+  color: #00af39;
   text-align: center;
   letter-spacing: 1px;
   transform: scale(0.9);
@@ -541,7 +541,7 @@ body {
   white-space: nowrap;
   font-size: 12px;
   text-align: center;
-  background: #00AF39;
+  background: #00af39;
   box-shadow: 0 -2px 2px #00571d inset;
 }
 .season .oddsList {
@@ -549,7 +549,7 @@ body {
   margin-top: 10px;
   border-radius: 5px;
   display: flex;
-  background: linear-gradient(10deg, #74705C, #FFFFCA);
+  background: linear-gradient(10deg, #74705c, #ffffca);
   color: #333;
 }
 .season .odds {
@@ -610,7 +610,7 @@ body {
   width: 100%;
   font-size: 13px;
   text-align: center;
-  color: #00AF39;
+  color: #00af39;
 }
 @media screen and (max-width: 450px) {
   .season .layoutShow {
@@ -644,7 +644,7 @@ body {
   height: 25px;
   line-height: 25px;
   font-size: 14px;
-  background: linear-gradient(0deg, #14A1A7, #7DDE80);
+  background: linear-gradient(0deg, #14a1a7, #7dde80);
   border-radius: 0 0 30px 0;
   font-style: italic;
 }
@@ -717,7 +717,7 @@ body {
   overflow: hidden;
 }
 .popular .popularShow .type {
-  color: #B78E00;
+  color: #b78e00;
 }
 .popular .arrow {
   width: 35px;
@@ -732,5 +732,72 @@ body {
 @media screen and (max-width: 450px) {
   .popular .arrow {
     display: none;
+  }
+}
+
+.vodList iframe {
+  width: 100%;
+  height: 54.5vw;
+  max-height: 613px;
+}
+
+.footer {
+  padding: 20px 0;
+  position: relative;
+  color: #999;
+  font-size: 14px;
+}
+.footer::before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #dee2e6;
+  transform: scaleY(0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.footer .title {
+  margin: 10px 0;
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: bold;
+  transform-origin: top center;
+  opacity: 0;
+  transform: scaleY(0);
+  animation: showDesc 0.5s forwards;
+}
+.footer p {
+  line-height: 22px;
+  transform-origin: top center;
+  opacity: 0;
+  transform: scaleY(0);
+  animation: showDesc 0.5s forwards;
+}
+.footer p + p {
+  margin-top: 10px;
+}
+.footer .more {
+  margin-top: 15px;
+  cursor: pointer;
+  text-align: right;
+}
+.footer .more span {
+  font-size: 12px;
+  padding: 10px;
+  border-radius: 3px;
+  display: inline-block;
+  font-weight: bold;
+  background-color: #999;
+  color: #004646;
+}
+@keyframes showDesc {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
   }
 }/*# sourceMappingURL=home.css.map */

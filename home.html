@@ -14,7 +14,7 @@
 <body>
     <div class="mainLayout" id="main">
         <!-- gameSel -->
-        <div class="gameSel">
+        <div class="gameSel" v-if="false">
             <iframe src="https://www.youtube.com/embed/zSM4PJ_g_BU?si=Q1hPsgmSXaSRwnGM"></iframe>
             <div class="list">
                 <ul>
@@ -69,7 +69,7 @@
         </div>
 
         <!-- trade -->
-        <div class="trade">
+        <div class="trade" v-if="false">
             <div class="title">LIVE TRANSACTION</div>
             <div class="sheet">
                 <table>
@@ -98,7 +98,7 @@
         </div>
 
         <!-- season -->
-        <div class="season">
+        <div class="season" v-if="false">
             <div class="title">Upcoming Events</div>
             <div class="seasonShow">
                 <div class="arrow left" @click="seasonTomove(1)"></div>
@@ -179,7 +179,7 @@
         </div>
 
         <!-- popular -->
-        <div class="popular">
+        <div class="popular" v-if="false">
             <div class="title">
                 <div class="inner">
                     <div class="icon">
@@ -209,10 +209,32 @@
             </div>
         </div>
 
-        <div class="poster">
+        <!-- vodList -->
+        <div class="vodList">
+            <!-- src="https://www.youtube.com/embed/zSM4PJ_g_BU?autoplay=1&loop=1&controls=1&modestbranding=1" -->
+            <!-- https://www.youtube.com/embed/JWYNptUogU8?si=QcQqRCcdsRa2F_Bn -->
+            <!-- https://www.youtube.com/embed/ickj4DT5S3U?si=6zubtmWnp1bxypEt -->
+            <iframe :src="vodList[vodSel].url"></iframe>
+            <button @click="vodSel = 0">1</button>
+            <button @click="vodSel = 1">2</button>
+        </div>
+
+        <div class="poster" v-if="false">
             <img src="images/other/poster.webp">
         </div>
 
+        <!-- footer -->
+        <div class="footer" v-if="false">
+            <div class="txt">
+                <div class="res" v-html="footer.res"></div>
+                <div class="title" v-html="footer.title"></div>
+                <template v-for="(item, index) in footer.desc" :key="index">
+                    <p v-html="item" v-if="index <= showDesc"></p>
+                </template>
+                
+                <div class="more" @click="addDesc()"><span>read more</span></div>
+            </div>
+        </div>
     </div>
     <script>
         Vue.createApp({
@@ -312,6 +334,24 @@
                             type:'Casino'
                         },
                         
+                    ],          
+                    showDesc: 0,
+                    footer: {
+                        res: '<strong>© 2024 ZUES.All Rights Reserved.</strong>',
+                        title: 'Trusted Online Casino Malaysia 2023 - ZUES',
+                        desc:[
+                            'Trusted Online Casino Malaysia 2023 - ZUES<br><strong>Online Casino Malaysia</strong> has evolved drastically in the last few years. It has been drawing comparisons from the Western countries. <strong>ZUES</strong>, an <strong>online casino Malaysia</strong> has become the most trusted online gambling platform for bettors. We have emerged as a top choice of casino games for all Malaysians. We offer a wide range of games as much as you can expect from any top operator in the country.',
+                            'At our online casino in Malaysia, you can play live poker games in mobile, online roulette, and live casino games. These are easy to play, and you can also check out our best online sport betting and e-sports betting at our site with the most competitive odds to consider. If you crave for slot games, don’t worry, we have it too for you. In short, <strong>ZUES</strong> is compatible with mobile and desktop versions whether its an iOS or Android OS mobile device.',
+                        ]
+                    },
+                    vodSel:0,
+                    vodList:[
+                        {
+                            url:'https://www.youtube.com/embed/JWYNptUogU8?si=QcQqRCcdsRa2F_Bn&autoplay=1&loop=1&mute=1'
+                        },
+                        {
+                            url:'https://www.youtube.com/embed/ickj4DT5S3U?si=6zubtmWnp1bxypEt&autoplay=1&loop=1&mute=1'
+                        }
                     ]
                 };
             },
@@ -361,6 +401,10 @@
                     document.querySelectorAll('.popularShow li').forEach(item => {
                         item.style.transform = `translateX(-${this.popularMove * 100}%)`
                     })
+                },
+                addDesc(){
+                    let max = this.footer.desc.length - 1;
+                    this.showDesc = this.showDesc >= max ? max : this.showDesc+1;
                 }
             },  
             mounted() {

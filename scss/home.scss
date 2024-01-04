@@ -20,12 +20,12 @@ body {
 // gameSel
 .gameSel {
     display: flex;
-    iframe{
+    iframe {
         width: 60%;
         margin-right: 10px;
         flex-shrink: 0;
         border-radius: 5px;
-        @include rwd(550){
+        @include rwd(550) {
             display: none;
         }
     }
@@ -33,7 +33,7 @@ body {
         margin-right: 15px;
         flex-shrink: 0;
         display: none;
-        @include rwd(550){
+        @include rwd(550) {
             display: block;
         }
         li {
@@ -225,7 +225,7 @@ body {
         font-style: italic;
     }
 
-    .seasonShow{
+    .seasonShow {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -242,41 +242,40 @@ body {
         &.left {
             transform: scale(-1);
         }
-        @include rwd(450){
+        @include rwd(450) {
             display: none;
         }
     }
 
     .list {
-        max-width: 900px;  
-        overflow: hidden;    
-        @include rwd(900){
+        max-width: 900px;
+        overflow: hidden;
+        @include rwd(900) {
             width: calc(100% - 70px);
             max-width: 450px;
         }
 
-        @include rwd(450){
-            width: 100%; 
+        @include rwd(450) {
+            width: 100%;
         }
 
         ul {
-            width: calc(var(--num) * 50%);        
+            width: calc(var(--num) * 50%);
             display: flex;
             justify-content: center;
-            &.only{
+            &.only {
                 width: 100%;
             }
-            @include rwd(900){
-                width: calc(var(--num) * 100%); 
+            @include rwd(900) {
+                width: calc(var(--num) * 100%);
             }
-            @include rwd(450){
+            @include rwd(450) {
                 width: 100%;
                 overflow: scroll;
                 -webkit-overflow-scrolling: touch;
                 scroll-snap-type: x mandatory;
                 justify-content: start;
             }
-    
         }
         li {
             width: calc(100% / 2);
@@ -288,7 +287,7 @@ body {
             @include rwd(900) {
                 width: 100%;
             }
-            @include rwd(450){
+            @include rwd(450) {
                 min-width: 85vw;
                 scroll-snap-align: start;
             }
@@ -297,11 +296,11 @@ body {
     .card {
         padding: 20px 30px;
         border-radius: 10px;
-        background: linear-gradient(0deg,#C09969,#0B4949);
+        background: linear-gradient(0deg, #c09969, #0b4949);
         box-shadow: 0 -2px 20px #032727 inset;
 
-        @include rwd(450){
-           padding: 20px 10px;
+        @include rwd(450) {
+            padding: 20px 10px;
         }
     }
 
@@ -320,18 +319,17 @@ body {
             display: flex;
             justify-content: center;
         }
-        &.full{
-           td{
-            width: 100%;
-           }
+        &.full {
+            td {
+                width: 100%;
+            }
         }
     }
     td {
         padding: 0 5px;
-        
     }
 
-    .tip{
+    .tip {
         padding-bottom: 10px;
         text-align: center;
         font-size: 18px;
@@ -349,22 +347,22 @@ body {
         justify-content: center;
         position: relative;
         overflow: hidden;
-        background: linear-gradient(0deg,#FFFFA8,#86D2AE);
-        @include rwd(450){
-           width: 50px;
-           height: 50px;
+        background: linear-gradient(0deg, #ffffa8, #86d2ae);
+        @include rwd(450) {
+            width: 50px;
+            height: 50px;
         }
-        &::before{
-            content: '';
+        &::before {
+            content: "";
             width: calc(100% - 4px);
             height: calc(100% - 4px);
             margin: auto;
             position: absolute;
-            @include pos(tbrl,0);
-            background: #265650; 
+            @include pos(tbrl, 0);
+            background: #265650;
             border-radius: 50%;
         }
-        img{
+        img {
             width: calc(100% - 16px);
             position: relative;
             z-index: 1;
@@ -388,7 +386,7 @@ body {
         font-size: 18px;
         letter-spacing: 1px;
         font-weight: bold;
-        color: #DDB03C;
+        color: #ddb03c;
         text-align: center;
         @include rwd(450) {
             height: 50px;
@@ -401,18 +399,18 @@ body {
         text-align: center;
         letter-spacing: 1px;
         transform: scale(0.9);
-        @include rwd(450){
+        @include rwd(450) {
             display: none;
         }
     }
 
     .scoreTime {
         font-size: 14px;
-        color: #00AF39;
+        color: #00af39;
         text-align: center;
         letter-spacing: 1px;
         transform: scale(0.9);
-        @include rwd(450){
+        @include rwd(450) {
             display: none;
         }
     }
@@ -426,15 +424,15 @@ body {
         white-space: nowrap;
         font-size: 12px;
         text-align: center;
-        background: #00AF39;
+        background: #00af39;
         box-shadow: 0 -2px 2px #00571d inset;
     }
-    .oddsList{
+    .oddsList {
         width: 100%;
         margin-top: 10px;
         border-radius: 5px;
         display: flex;
-        background: linear-gradient(10deg, #74705C, #FFFFCA);
+        background: linear-gradient(10deg, #74705c, #ffffca);
         color: #333;
     }
 
@@ -445,16 +443,16 @@ body {
         text-align: center;
         font-weight: bold;
         position: relative;
-        & + .odds{
-            &::before{
-                content: '';
+        & + .odds {
+            &::before {
+                content: "";
                 width: 2px;
                 margin: auto;
                 height: calc(100% - 20px);
                 background-color: #333;
                 position: absolute;
-                @include pos(tbl,0);
-                opacity: .8;
+                @include pos(tbl, 0);
+                opacity: 0.8;
             }
         }
         p {
@@ -494,7 +492,7 @@ body {
             width: 100%;
             font-size: 13px;
             text-align: center;
-            color: #00AF39;
+            color: #00af39;
         }
         @include rwd(450) {
             display: flex;
@@ -509,89 +507,87 @@ body {
 }
 
 // popular
-.popular{
-    .title{
+.popular {
+    .title {
         margin-bottom: 10px;
         display: inline-block;
-        .inner{
+        .inner {
             padding: 20px 0 0 15px;
             display: flex;
             align-items: center;
-            position: relative; 
+            position: relative;
         }
-        .icon{
+        .icon {
             width: 30px;
             position: absolute;
-            @include pos(tl,0);
+            @include pos(tl, 0);
         }
-        p{
+        p {
             padding: 0 25px 0 20px;
             height: 25px;
             line-height: 25px;
             font-size: 14px;
-            background: linear-gradient(0deg,#14A1A7,#7DDE80);
+            background: linear-gradient(0deg, #14a1a7, #7dde80);
             border-radius: 0 0 30px 0;
             font-style: italic;
         }
     }
 
-    .popularShow{
+    .popularShow {
         display: flex;
         align-items: center;
         color: #fff;
-        .list{
+        .list {
             width: 100%;
             overflow: hidden;
         }
 
-        ul{
-            width: calc(5 * 20%); 
+        ul {
+            width: calc(5 * 20%);
             display: flex;
-            @include rwd(950){
+            @include rwd(950) {
                 width: calc(4 * 25%);
             }
-            @include rwd(780){
+            @include rwd(780) {
                 width: calc(3 * calc(100% / 3));
             }
-            @include rwd(600){
+            @include rwd(600) {
                 width: calc(2 * calc(100% / 2));
             }
-            @include rwd(450){
+            @include rwd(450) {
                 width: 100%;
                 overflow: scroll;
                 -webkit-overflow-scrolling: touch;
                 scroll-snap-type: x mandatory;
             }
-            
         }
-        li{
+        li {
             min-width: calc(100% / 5);
             padding: 5px;
             font-size: 14px;
-            transition: .3s;
-            @include rwd(950){
+            transition: 0.3s;
+            @include rwd(950) {
                 min-width: calc(100% / 4);
             }
-            @include rwd(780){
+            @include rwd(780) {
                 min-width: calc(100% / 3);
             }
-            @include rwd(600){
+            @include rwd(600) {
                 min-width: calc(100% / 2);
             }
-            @include rwd(450){
+            @include rwd(450) {
                 min-width: 45vw;
                 scroll-snap-align: start;
             }
-           
         }
-        .pic{
+        .pic {
             margin-bottom: 5px;
             border-radius: 10px;
             overflow: hidden;
         }
 
-        .type{
-            color: #B78E00;
+        .type {
+            color: #b78e00;
         }
     }
 
@@ -604,9 +600,83 @@ body {
         &.left {
             transform: scale(-1);
         }
-        @include rwd(450){
+        @include rwd(450) {
             display: none;
         }
     }
 }
+
+// vodList
+.vodList{
+    iframe{
+        width: 100%;
+        height: 54.5vw;
+        max-height: 613px;
+    }
+}
+
+
+// footer
+.footer {
+    padding: 20px 0;
+    position: relative;
+    color: #999;
+    font-size: 14px;
+    &::before {
+        content: "";
+        width: 100%;
+        height: 1px;
+        background-color: #dee2e6;
+        transform: scaleY(.5);
+        position: absolute;
+        @include pos(tl,0);
+    }
+    .title{
+        margin: 10px 0;
+        font-size: 22px;
+        line-height: 28px;
+        font-weight: bold;
+        transform-origin: top center;
+        opacity: 0;
+        transform: scaleY(0);
+        animation: showDesc .5s forwards;
+    }
+
+    p{
+        line-height: 22px;
+        transform-origin: top center;
+        opacity: 0;
+        transform: scaleY(0);
+        animation: showDesc .5s forwards;
+        & + p{
+            margin-top: 10px;
+        }
+    }
+    .more{
+        margin-top: 15px;
+        cursor: pointer;
+        text-align: right;
+        span{
+            font-size: 12px;
+            padding: 10px;
+            border-radius: 3px;
+            display: inline-block;
+            font-weight: bold;
+            background-color: #999;
+            color: #004646;
+        }
+    }
+
+    @keyframes showDesc {
+        0%{
+            opacity: 0;
+            transform: scaleY(0);
+        }
+        100%{
+            opacity: 1;
+            transform: scaleY(1);
+        }
+    }
+}
+   
 
