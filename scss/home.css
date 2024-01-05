@@ -831,7 +831,7 @@ body {
   height: 100%;
   border-radius: 5px;
   overflow: hidden;
-  background-color: #1A1F23;
+  background-color: #1a1f23;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -844,7 +844,7 @@ body {
   padding: 8px 10px;
   font-weight: bold;
   text-align: center;
-  color: #B24315;
+  color: #b24315;
 }
 .vodplay .arrow {
   width: 35px;
@@ -860,6 +860,34 @@ body {
   .vodplay .arrow {
     display: none;
   }
+}
+
+.toCinema a {
+  border-radius: 8px;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  box-shadow: 2px 2px 8px #000;
+}
+.toCinema .title {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.toCinema .play {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+}
+.toCinema .play img {
+  width: 12%;
 }
 
 .footer {
@@ -920,5 +948,74 @@ body {
   100% {
     opacity: 1;
     transform: scaleY(1);
+  }
+}
+
+.onlineNum {
+  padding: 4px;
+  border-radius: 8px;
+  position: fixed;
+  bottom: 100px;
+  left: 10px;
+  background: linear-gradient(90deg, #d69d49, #f5d37d, #d69d49 40%, #ffe99c 70%, #8b5c22, #ce9643);
+  box-shadow: 2px 2px 8px #000;
+}
+.onlineNum .title {
+  margin-bottom: 3px;
+  padding: 8px 10px;
+  background-color: #023c3d;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 8px 8px 0 0;
+  font-style: italic;
+}
+.onlineNum .lamp {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #00ff48;
+  animation: lamp 1s infinite linear;
+}
+.onlineNum .icon {
+  width: 15px;
+  height: 15px;
+  margin: 0 2px 0 5px;
+  background: url(../images/icons/user.webp) no-repeat center/cover;
+}
+.onlineNum .numList {
+  display: flex;
+  gap: 3px;
+}
+.onlineNum .item {
+  height: 30px;
+  flex: 1;
+  background-color: #023c3d;
+  overflow: hidden;
+}
+.onlineNum .item:first-child {
+  border-radius: 0 0 0 8px;
+}
+.onlineNum .item:last-child {
+  border-radius: 0 0 8px 0;
+}
+.onlineNum ul {
+  transition: 0.8s;
+  transform: translateY(calc(var(--num) * -30px));
+}
+.onlineNum li {
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+@keyframes lamp {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
   }
 }/*# sourceMappingURL=home.css.map */

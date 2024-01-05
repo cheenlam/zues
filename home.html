@@ -233,8 +233,17 @@
             </div>
         </div>
 
-        <div class="poster">
-            <img src="images/other/poster.webp">
+        <!-- toCinema -->
+        <div class="toCinema">
+            <a href="javascript:void(0);">
+                <img src="images/other/poster.webp">
+                <div class="title">
+                    <img src="images/other/movie_title.webp">
+                </div>
+                <div class="play">
+                    <img src="images/other/movie_play.webp">
+                </div>
+            </a>
         </div>
 
         <!-- footer -->
@@ -247,6 +256,24 @@
                 </template>
                 
                 <div class="more" @click="addDesc()" v-if="showDesc < footer.desc.length-1"><span>read more</span></div>
+            </div>
+        </div>
+
+        <!-- onlineNum -->
+        <div class="onlineNum">
+            <div class="title">
+                <div class="lamp"></div>
+                <div class="icon"></div>
+                <p>Online User</p>
+            </div>
+            <div class="numList">
+                <div class="item" v-for="(item,index) in online.show">
+                    <ul :style="{'--num': item}">
+                        <li>0</li>
+                        <li  v-for="num in 9">{{num}}</li>
+                        <li>0</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -410,7 +437,12 @@
                             name :'夜雾',
                             name_en :'Night fog'
                         },
-                    ]
+                    ],
+
+                    online:{
+                        num: 0,
+                        show: [0,0,0,0,0]
+                    }
                 };
             },
             methods: {
@@ -504,6 +536,17 @@
                 $('#carousel2').swipeslider();
 
                 window.addEventListener('resize', this.resize);
+
+                setInterval(()=>{
+                    let ran = Math.floor(Math.random() * 1001) - 500;
+                    this.online.num =  this.online.num + ran <= 0 ? 0 : this.online.num + ran;        
+                    let numArray = this.online.num.toString().split('').map(Number);
+                    let arr = Array.from({ length: 5 }, (_, index) => numArray[numArray.length - 5 + index] || 0);
+
+                    for(let i = 0; i<arr.length; i++){
+                        this.online.show[i] = arr[i];
+                    }
+                },1000)
             },
         }).mount("#main");
     </script>
