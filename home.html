@@ -440,8 +440,8 @@
                     ],
 
                     online:{
-                        num: 0,
-                        show: [0,0,0,0,0]
+                        num: 100,
+                        show: [0,0,1,0,0]
                     }
                 };
             },
@@ -539,7 +539,7 @@
 
                 setInterval(()=>{
                     let ran = Math.floor(Math.random() * 1001) - 500;
-                    this.online.num =  this.online.num + ran <= 0 ? 0 : this.online.num + ran;        
+                    this.online.num =  this.online.num + ran <= 100 ? 100 : this.online.num + ran;        
                     let numArray = this.online.num.toString().split('').map(Number);
                     let arr = Array.from({ length: 5 }, (_, index) => numArray[numArray.length - 5 + index] || 0);
 
