@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
+    <title>ZUES｜home</title>
     <script src="js/jquery_3.6.0.js"></script>
     <script src="js/swipeslider.js"></script>
     <script src="js/vue_3.2.19.js"></script>
@@ -247,7 +247,118 @@
         </div>
 
         <!-- footer -->
-        <div class="footer">
+        <div class="footer"> 
+            <div class="provider">
+                <div class="title">
+                    <span>Our Collabertion Provider</span>
+                </div>
+                <div class="list" :class="{'use': footer.provider.anUse}">
+                    <ul>
+                        <li v-for="(item, index) in footer.provider.list" :key="index">
+                            <a :href="item.href == '' ? 'javascript:void(0);': item.href"  
+                               :target="item.href == '' ? '': '_blank'">
+                                <img :src="item.img">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="minorLink">
+                <div class="item">
+                    <div class="title">{{footer.license.title}}</div>
+                    <div class="tip">{{footer.license.tip}}</div>
+                    <div class="list" :class="{'use': footer.license.anUse}">
+                        <ul>
+                            <li v-for="(item, index) in footer.license.list" :key="index">
+                                <a :href="item.href == '' ? 'javascript:void(0);': item.href"  
+                                   :target="item.href == '' ? '': '_blank'">
+                                    <img :src="item.img">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="title">{{footer.cert.title}}</div>
+                    <div class="list" :class="{'use': footer.cert.anUse}">
+                        <ul>
+                            <li v-for="(item, index) in footer.cert.list" :key="index">
+                                <a :href="item.href == '' ? 'javascript:void(0);': item.href"  
+                                   :target="item.href == '' ? '': '_blank'">
+                                    <img :src="item.img">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="title">{{footer.resp.title}}</div>
+                    <div class="list" :class="{'use': footer.resp.anUse}">
+                        <ul>
+                            <li v-for="(item, index) in footer.resp.list" :key="index">
+                                <a :href="item.href == '' ? 'javascript:void(0);': item.href"  
+                                   :target="item.href == '' ? '': '_blank'">
+                                    <img :src="item.img">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="title">{{footer.follow.title}}</div>
+                    <div class="list" :class="{'use': footer.follow.anUse}">
+                        <ul>
+                            <li v-for="(item, index) in footer.follow.list" :key="index">
+                                <a :href="item.href == '' ? 'javascript:void(0);': item.href"  
+                                   :target="item.href == '' ? '': '_blank'">
+                                    <img :src="item.img">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="title">{{footer.payment.title}}</div>
+                    <div class="list" :class="{'use': footer.payment.anUse}">
+                        <ul>
+                            <li v-for="(item, index) in footer.payment.list" :key="index">
+                                <a :href="item.href == '' ? 'javascript:void(0);': item.href"  
+                                   :target="item.href == '' ? '': '_blank'">
+                                    <img :src="item.img">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="title">{{footer.browser.title}}</div>
+                    <div class="list" :class="{'use': footer.browser.anUse}">
+                        <ul>
+                            <li v-for="(item, index) in footer.browser.list" :key="index">
+                                <a :href="item.href == '' ? 'javascript:void(0);': item.href"  
+                                   :target="item.href == '' ? '': '_blank'">
+                                    <img :src="item.img">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="title">{{footer.securtiy.title}}</div>
+                    <div class="list" :class="{'use': footer.securtiy.anUse}">
+                        <ul>
+                            <li v-for="(item, index) in footer.securtiy.list" :key="index">
+                                <a :href="item.href == '' ? 'javascript:void(0);': item.href"  
+                                   :target="item.href == '' ? '': '_blank'">
+                                    <img :src="item.img">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>    
+            </div>
+
             <div class="txt">
                 <div class="res" v-html="footer.res"></div>
                 <div class="title" v-html="footer.title"></div>
@@ -255,12 +366,12 @@
                     <p v-html="item" v-if="index <= showDesc"></p>
                 </template>
                 
-                <div class="more" @click="addDesc()" v-if="showDesc < footer.desc.length-1"><span>read more</span></div>
+                <div class="more" @click="addDesc()" v-if="showDesc < footer.desc.length-1"><span>See more</span></div>
             </div>
         </div>
 
-        <!-- onlineNum -->
-        <div class="onlineNum">
+         <!-- onlineNum -->
+         <div class="onlineNum">
             <div class="title">
                 <div class="lamp"></div>
                 <div class="icon"></div>
@@ -378,6 +489,105 @@
                     ],          
                     showDesc: 0,
                     footer: {
+                        provider:{
+                            anUse: true,
+                            list:[
+                                {href:'',img:'images/logo/provider/918kiss.webp'},
+                                {href:'',img:'images/logo/provider/ace333.webp'},
+                                {href:'',img:'images/logo/provider/AE_sexy.webp'},
+                                {href:'',img:'images/logo/provider/allbet.webp'},
+                                {href:'',img:'images/logo/provider/asia_gaming.webp'},
+                                {href:'',img:'images/logo/provider/big_gaming.webp'},
+                                {href:'',img:'images/logo/provider/dragoon_soft.webp'},
+                                {href:'',img:'images/logo/provider/dream_gaming.webp'},
+                                {href:'',img:'images/logo/provider/evolution.webp'},
+                                {href:'',img:'images/logo/provider/jili.webp'},
+                                {href:'',img:'images/logo/provider/joker.webp'},
+                                {href:'',img:'images/logo/provider/king855.webp'},
+                                {href:'',img:'images/logo/provider/lucky365.webp'},
+                                {href:'',img:'images/logo/provider/m8bet.webp'},
+                                {href:'',img:'images/logo/provider/playtech.webp'},
+                                {href:'',img:'images/logo/provider/pragmatic_play.webp'},
+                                {href:'',img:'images/logo/provider/pussy888.webp'},
+                                {href:'',img:'images/logo/provider/sbobet.webp'},
+                                {href:'',img:'images/logo/provider/xe88.webp'},
+                                {href:'',img:'images/logo/provider/ib_bet.webp'},
+                            ]
+                        },
+                        license:{
+                            title: 'Game License',
+                            tip: 'The online gaming industry is constantly growing, and now is the perfect time to launch your gaming platform. ZUES provides professional assistance in obtaining a gaming license, ensuring a ready-made solution for starting and legalizing a business in the gaming industry.',
+                            anUse: true,
+                            list:[
+                                {href:'',img:'images/logo/license/antillephone.webp'},
+                                {href:'',img:'images/logo/license/aware.webp'},
+                                {href:'',img:'images/logo/license/gc.webp'},
+                                {href:'',img:'images/logo/license/pagcor.webp'},
+                                {href:'',img:'images/logo/license/xnext.webp'}
+                            ]
+                        },
+                        cert:{
+                            title: 'Cerfitictate',
+                            anUse: false,
+                            list:[
+                                {href:'',img:'images/logo/cert/bmm.svg'},
+                                {href:'',img:'images/logo/cert/godaddy.svg'},
+                                {href:'',img:'images/logo/cert/itech.svg'},
+                                {href:'',img:'images/logo/cert/reco_cert.svg'}
+                            ]
+                        },
+                        resp:{
+                            title: 'Responsible Gaming',
+                            anUse: false,
+                            list:[
+                                {href:'',img:'images/logo/resp/18+.svg'},
+                                {href:'',img:'images/logo/resp/begambleaware.svg'},
+                                {href:'',img:'images/logo/resp/gamcare.svg'}
+                            ]
+                        },
+                        follow:{
+                            title: 'Follow Us',
+                            anUse: true,
+                            list:[
+                                {href:'',img:'images/logo/follow/fb.svg'},
+                                {href:'',img:'images/logo/follow/instagram.svg'},
+                                {href:'',img:'images/logo/follow/twitter.svg'},
+                                {href:'',img:'images/logo/follow/youtube.svg'}
+                            ]
+                        },
+                        payment:{
+                            title: 'Payment Method',
+                            anUse: true,
+                            list:[
+                                {href:'',img:'images/logo/payment/bitcoin.svg'},
+                                {href:'',img:'images/logo/payment/duit_now.webp'},
+                                {href:'',img:'images/logo/payment/ethereum.svg'},
+                                {href:'',img:'images/logo/payment/fpx.svg'},
+                                {href:'',img:'images/logo/payment/grabpay.webp'},
+                                {href:'',img:'images/logo/payment/master_card.svg'},
+                                {href:'',img:'images/logo/payment/TouchNGo.svg'},
+                                {href:'',img:'images/logo/payment/USDT.svg'},
+                                {href:'',img:'images/logo/payment/visa.svg'}
+                            ]
+                        },
+                        browser:{
+                            title: 'Suggest Browser',
+                            anUse: true,
+                            list:[
+                                {href:'',img:'images/logo/browser/chrome.webp'},
+                                {href:'',img:'images/logo/browser/edge.webp'},
+                                {href:'',img:'images/logo/browser/firefox.webp'},
+                                {href:'',img:'images/logo/browser/safari.webp'}
+                            ]
+                        },
+                        securtiy:{
+                            title: 'Securtiy',
+                            anUse: true,
+                            list:[
+                                {href:'',img:'images/logo/securtiy/iovation.webp'},
+                                {href:'',img:'images/logo/securtiy/threatmetrix.webp'}
+                            ]
+                        },
                         res: '<strong>© 2024 ZUES.All Rights Reserved.</strong>',
                         title: 'Trusted Online Casino Malaysia 2023 - ZUES',
                         desc:[
@@ -438,7 +648,6 @@
                             name_en :'Night fog'
                         },
                     ],
-
                     online:{
                         num: 100,
                         show: [0,0,1,0,0]
