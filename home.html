@@ -380,9 +380,7 @@
             <div class="numList">
                 <div class="item" v-for="(item,index) in online.show">
                     <ul :style="{'--num': item}">
-                        <li>0</li>
-                        <li  v-for="num in 9">{{num}}</li>
-                        <li>0</li>
+                        <li v-for="num in 10">{{num -1}}</li>
                     </ul>
                 </div>
             </div>
